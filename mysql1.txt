@@ -1,0 +1,383 @@
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.33 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database archana_db;
+Query OK, 1 row affected (0.03 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| archana_db         |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.04 sec)
+
+mysql> use archu_db;
+ERROR 1049 (42000): Unknown database 'archu_db'
+mysql> use archana_db;
+Database changed
+mysql> create table doctors(doc_id integer,doc_name varchar(20),doc_salary float,doc_gen char(1),doc_dob date,doc_special varchar(20),doc_city varchar(20);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create table doctors(doc_id integer,doc_name varchar(20),doc_salary float,doc_gen char(1),doc_dob date,doc_special varchar(20),doc_city varchar(20);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create table doctors(doc_id integer,doc_name varchar(20),doc_salary float,doc_gen char(1),doc_dob date,doc_special varchar(20),doc_city varchar(20));
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> describe doctors;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| doc_id      | int         | YES  |     | NULL    |       |
+| doc_name    | varchar(20) | YES  |     | NULL    |       |
+| doc_salary  | float       | YES  |     | NULL    |       |
+| doc_gen     | char(1)     | YES  |     | NULL    |       |
+| doc_dob     | date        | YES  |     | NULL    |       |
+| doc_special | varchar(20) | YES  |     | NULL    |       |
+| doc_city    | varchar(20) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+
+mysql> insert into doctors values(1001,'Archana',1000000.25,'f','17/10/2003','cardiology','kokapet');
+ERROR 1292 (22007): Incorrect date value: '17/10/2003' for column 'doc_dob' at row 1
+mysql> insert into doctors values(1001,'Archana',1000000.25,'f','2003/10/17','cardiology','kokapet');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+mysql> insert into doctors values(1002,'Varshitha'10000038.35,'f','2003/09/12','dentist','miyapur');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '10000038.35,'f','2003/09/12','dentist','miyapur')' at line 1
+mysql> insert into doctors values(1002,'Varshitha'10000038.35','f','2003/09/12','dentist','miyapur');
+    '>
+    '> insert into doctors values(1002,'Varshitha'10000038.35','f','2003/09/12','dentist','miyapur');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '10000038.35','f','2003/09/12','dentist','miyapur');
+
+insert into doctors values(' at line 1
+mysql> insert into doctors values(1002,'Varshitha'10000038.35','f','2003/09/12','dentist','miyapur');
+    '> insert into doctors values(1002,'Varshitha'10038.35','f','2003/09/12','dentist','miyapur');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '10000038.35','f','2003/09/12','dentist','miyapur');
+insert into doctors values(1' at line 1
+mysql> insert into doctors values(1002,'Varshitha'10038.35','f','2003/09/12','dentist','miyapur');
+    '>
+    '> ;
+    '> /
+    '> ^C
+mysql> insert into doctors values(1002,'Varshitha'10038.35','f','2003/09/12','dentist','miyapur');
+    '> ^C
+mysql> insert into doctors values(1002,'Varshitha',10038.35,'f','2003/09/12','dentist','miyapur');
+Query OK, 1 row affected, 1 warning (0.03 sec)
+
+mysql> insert into doctors values(1003,'Likitha','1234.04,'f','2003/08/07','phsycologist','hydranagar');
+    '> ^C
+mysql> insert into doctors values(1003,'Likitha',1234.04,'f','2003/08/07','phsycologist','hydranagar');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+mysql> insert into doctors values(1004,'Maniharika',1256.02,'f','2003/02/01','therapist','hitechcity');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+mysql> insert into doctors values(1005,'geethika',12367.06,'f','2002/09/06','physiologist','gachibowli');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+mysql> select * from doctors;
++--------+------------+------------+---------+------------+--------------+------------+
+| doc_id | doc_name   | doc_salary | doc_gen | doc_dob    | doc_special  | doc_city   |
++--------+------------+------------+---------+------------+--------------+------------+
+|   1001 | Archana    |    1000000 | f       | 2003-10-17 | cardiology   | kokapet    |
+|   1002 | Varshitha  |    10038.3 | f       | 2003-09-12 | dentist      | miyapur    |
+|   1003 | Likitha    |    1234.04 | f       | 2003-08-07 | phsycologist | hydranagar |
+|   1004 | Maniharika |    1256.02 | f       | 2003-02-01 | therapist    | hitechcity |
+|   1005 | geethika   |    12367.1 | f       | 2002-09-06 | physiologist | gachibowli |
++--------+------------+------------+---------+------------+--------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> insert into doctors(doc_id,doc_name,doc_salary,doc_gen)values(1006,'pooja',85000.25,'f');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into doctors(doc_id,doc_name,doc_salary,doc_gen)values(1007,'pujitha',64000.25,'f');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from doctors;
++--------+------------+------------+---------+------------+--------------+------------+
+| doc_id | doc_name   | doc_salary | doc_gen | doc_dob    | doc_special  | doc_city   |
++--------+------------+------------+---------+------------+--------------+------------+
+|   1001 | Archana    |    1000000 | f       | 2003-10-17 | cardiology   | kokapet    |
+|   1002 | Varshitha  |    10038.3 | f       | 2003-09-12 | dentist      | miyapur    |
+|   1003 | Likitha    |    1234.04 | f       | 2003-08-07 | phsycologist | hydranagar |
+|   1004 | Maniharika |    1256.02 | f       | 2003-02-01 | therapist    | hitechcity |
+|   1005 | geethika   |    12367.1 | f       | 2002-09-06 | physiologist | gachibowli |
+|   1006 | pooja      |    85000.2 | f       | NULL       | NULL         | NULL       |
+|   1007 | pujitha    |    64000.2 | f       | NULL       | NULL         | NULL       |
++--------+------------+------------+---------+------------+--------------+------------+
+7 rows in set (0.00 sec)
+
+mysql> update doctors set doc_dob='2003-10-24'where doc_id=1005;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from doctors;
++--------+------------+------------+---------+------------+--------------+------------+
+| doc_id | doc_name   | doc_salary | doc_gen | doc_dob    | doc_special  | doc_city   |
++--------+------------+------------+---------+------------+--------------+------------+
+|   1001 | Archana    |    1000000 | f       | 2003-10-17 | cardiology   | kokapet    |
+|   1002 | Varshitha  |    10038.3 | f       | 2003-09-12 | dentist      | miyapur    |
+|   1003 | Likitha    |    1234.04 | f       | 2003-08-07 | phsycologist | hydranagar |
+|   1004 | Maniharika |    1256.02 | f       | 2003-02-01 | therapist    | hitechcity |
+|   1005 | geethika   |    12367.1 | f       | 2003-10-24 | physiologist | gachibowli |
+|   1006 | pooja      |    85000.2 | f       | NULL       | NULL         | NULL       |
+|   1007 | pujitha    |    64000.2 | f       | NULL       | NULL         | NULL       |
++--------+------------+------------+---------+------------+--------------+------------+
+7 rows in set (0.00 sec)
+
+mysql> update doctors set doc_salary=doc_salary+500;
+Query OK, 7 rows affected (0.01 sec)
+Rows matched: 7  Changed: 7  Warnings: 0
+
+mysql> select * from doctors;
++--------+------------+------------+---------+------------+--------------+------------+
+| doc_id | doc_name   | doc_salary | doc_gen | doc_dob    | doc_special  | doc_city   |
++--------+------------+------------+---------+------------+--------------+------------+
+|   1001 | Archana    |    1000500 | f       | 2003-10-17 | cardiology   | kokapet    |
+|   1002 | Varshitha  |    10538.3 | f       | 2003-09-12 | dentist      | miyapur    |
+|   1003 | Likitha    |    1734.04 | f       | 2003-08-07 | phsycologist | hydranagar |
+|   1004 | Maniharika |    1756.02 | f       | 2003-02-01 | therapist    | hitechcity |
+|   1005 | geethika   |    12867.1 | f       | 2003-10-24 | physiologist | gachibowli |
+|   1006 | pooja      |    85500.2 | f       | NULL       | NULL         | NULL       |
+|   1007 | pujitha    |    64500.2 | f       | NULL       | NULL         | NULL       |
++--------+------------+------------+---------+------------+--------------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select doc_id,doc_name,doc_salary from doctors where doc_salary<3000;
++--------+------------+------------+
+| doc_id | doc_name   | doc_salary |
++--------+------------+------------+
+|   1003 | Likitha    |    1734.04 |
+|   1004 | Maniharika |    1756.02 |
++--------+------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> rename table doctors to physicians;
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> select * from physicians;
++--------+------------+------------+---------+------------+--------------+------------+
+| doc_id | doc_name   | doc_salary | doc_gen | doc_dob    | doc_special  | doc_city   |
++--------+------------+------------+---------+------------+--------------+------------+
+|   1001 | Archana    |    1000500 | f       | 2003-10-17 | cardiology   | kokapet    |
+|   1002 | Varshitha  |    10538.3 | f       | 2003-09-12 | dentist      | miyapur    |
+|   1003 | Likitha    |    1734.04 | f       | 2003-08-07 | phsycologist | hydranagar |
+|   1004 | Maniharika |    1756.02 | f       | 2003-02-01 | therapist    | hitechcity |
+|   1005 | geethika   |    12867.1 | f       | 2003-10-24 | physiologist | gachibowli |
+|   1006 | pooja      |    85500.2 | f       | NULL       | NULL         | NULL       |
+|   1007 | pujitha    |    64500.2 | f       | NULL       | NULL         | NULL       |
++--------+------------+------------+---------+------------+--------------+------------+
+7 rows in set (0.01 sec)
+
+mysql> alter table physicians add column doc_email varchar(20);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from physicians;
++--------+------------+------------+---------+------------+--------------+------------+-----------+
+| doc_id | doc_name   | doc_salary | doc_gen | doc_dob    | doc_special  | doc_city   | doc_email |
++--------+------------+------------+---------+------------+--------------+------------+-----------+
+|   1001 | Archana    |    1000500 | f       | 2003-10-17 | cardiology   | kokapet    | NULL      |
+|   1002 | Varshitha  |    10538.3 | f       | 2003-09-12 | dentist      | miyapur    | NULL      |
+|   1003 | Likitha    |    1734.04 | f       | 2003-08-07 | phsycologist | hydranagar | NULL      |
+|   1004 | Maniharika |    1756.02 | f       | 2003-02-01 | therapist    | hitechcity | NULL      |
+|   1005 | geethika   |    12867.1 | f       | 2003-10-24 | physiologist | gachibowli | NULL      |
+|   1006 | pooja      |    85500.2 | f       | NULL       | NULL         | NULL       | NULL      |
+|   1007 | pujitha    |    64500.2 | f       | NULL       | NULL         | NULL       | NULL      |
++--------+------------+------------+---------+------------+--------------+------------+-----------+
+7 rows in set (0.00 sec)
+
+mysql> update physicians set doc_email='hello.doctor@yahoo.Com';
+ERROR 1406 (22001): Data too long for column 'doc_email' at row 1
+mysql> update physicians set doc_email='doctor@yahoo.com';
+Query OK, 7 rows affected (0.01 sec)
+Rows matched: 7  Changed: 7  Warnings: 0
+
+mysql> select* from physicians;
++--------+------------+------------+---------+------------+--------------+------------+------------------+
+| doc_id | doc_name   | doc_salary | doc_gen | doc_dob    | doc_special  | doc_city   | doc_email        |
++--------+------------+------------+---------+------------+--------------+------------+------------------+
+|   1001 | Archana    |    1000500 | f       | 2003-10-17 | cardiology   | kokapet    | doctor@yahoo.com |
+|   1002 | Varshitha  |    10538.3 | f       | 2003-09-12 | dentist      | miyapur    | doctor@yahoo.com |
+|   1003 | Likitha    |    1734.04 | f       | 2003-08-07 | phsycologist | hydranagar | doctor@yahoo.com |
+|   1004 | Maniharika |    1756.02 | f       | 2003-02-01 | therapist    | hitechcity | doctor@yahoo.com |
+|   1005 | geethika   |    12867.1 | f       | 2003-10-24 | physiologist | gachibowli | doctor@yahoo.com |
+|   1006 | pooja      |    85500.2 | f       | NULL       | NULL         | NULL       | doctor@yahoo.com |
+|   1007 | pujitha    |    64500.2 | f       | NULL       | NULL         | NULL       | doctor@yahoo.com |
++--------+------------+------------+---------+------------+--------------+------------+------------------+
+7 rows in set (0.00 sec)
+
+mysql> alter table physicians drop column doc_email;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table physicians add column doc_email varchar(20);
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from physicians;
++--------+------------+------------+---------+------------+--------------+------------+-----------+
+| doc_id | doc_name   | doc_salary | doc_gen | doc_dob    | doc_special  | doc_city   | doc_email |
++--------+------------+------------+---------+------------+--------------+------------+-----------+
+|   1001 | Archana    |    1000500 | f       | 2003-10-17 | cardiology   | kokapet    | NULL      |
+|   1002 | Varshitha  |    10538.3 | f       | 2003-09-12 | dentist      | miyapur    | NULL      |
+|   1003 | Likitha    |    1734.04 | f       | 2003-08-07 | phsycologist | hydranagar | NULL      |
+|   1004 | Maniharika |    1756.02 | f       | 2003-02-01 | therapist    | hitechcity | NULL      |
+|   1005 | geethika   |    12867.1 | f       | 2003-10-24 | physiologist | gachibowli | NULL      |
+|   1006 | pooja      |    85500.2 | f       | NULL       | NULL         | NULL       | NULL      |
+|   1007 | pujitha    |    64500.2 | f       | NULL       | NULL         | NULL       | NULL      |
++--------+------------+------------+---------+------------+--------------+------------+-----------+
+7 rows in set (0.00 sec)
+
+mysql> desc physicians;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| doc_id      | int         | YES  |     | NULL    |       |
+| doc_name    | varchar(20) | YES  |     | NULL    |       |
+| doc_salary  | float       | YES  |     | NULL    |       |
+| doc_gen     | char(1)     | YES  |     | NULL    |       |
+| doc_dob     | date        | YES  |     | NULL    |       |
+| doc_special | varchar(20) | YES  |     | NULL    |       |
+| doc_city    | varchar(20) | YES  |     | NULL    |       |
+| doc_email   | varchar(20) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
+
+mysql> alter table physicians modify column doc_email date;
+Query OK, 7 rows affected (0.08 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> desc physicians;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| doc_id      | int         | YES  |     | NULL    |       |
+| doc_name    | varchar(20) | YES  |     | NULL    |       |
+| doc_salary  | float       | YES  |     | NULL    |       |
+| doc_gen     | char(1)     | YES  |     | NULL    |       |
+| doc_dob     | date        | YES  |     | NULL    |       |
+| doc_special | varchar(20) | YES  |     | NULL    |       |
+| doc_city    | varchar(20) | YES  |     | NULL    |       |
+| doc_email   | date        | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
+
+mysql> alter table physicians rename column doc_email to doc_doj;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from physicians
+    -> ^C
+mysql> select * from physicians;
++--------+------------+------------+---------+------------+--------------+------------+---------+
+| doc_id | doc_name   | doc_salary | doc_gen | doc_dob    | doc_special  | doc_city   | doc_doj |
++--------+------------+------------+---------+------------+--------------+------------+---------+
+|   1001 | Archana    |    1000500 | f       | 2003-10-17 | cardiology   | kokapet    | NULL    |
+|   1002 | Varshitha  |    10538.3 | f       | 2003-09-12 | dentist      | miyapur    | NULL    |
+|   1003 | Likitha    |    1734.04 | f       | 2003-08-07 | phsycologist | hydranagar | NULL    |
+|   1004 | Maniharika |    1756.02 | f       | 2003-02-01 | therapist    | hitechcity | NULL    |
+|   1005 | geethika   |    12867.1 | f       | 2003-10-24 | physiologist | gachibowli | NULL    |
+|   1006 | pooja      |    85500.2 | f       | NULL       | NULL         | NULL       | NULL    |
+|   1007 | pujitha    |    64500.2 | f       | NULL       | NULL         | NULL       | NULL    |
++--------+------------+------------+---------+------------+--------------+------------+---------+
+7 rows in set (0.00 sec)
+
+mysql> select * from physicians limit 3 offset 3;
++--------+------------+------------+---------+------------+--------------+------------+---------+
+| doc_id | doc_name   | doc_salary | doc_gen | doc_dob    | doc_special  | doc_city   | doc_doj |
++--------+------------+------------+---------+------------+--------------+------------+---------+
+|   1004 | Maniharika |    1756.02 | f       | 2003-02-01 | therapist    | hitechcity | NULL    |
+|   1005 | geethika   |    12867.1 | f       | 2003-10-24 | physiologist | gachibowli | NULL    |
+|   1006 | pooja      |    85500.2 | f       | NULL       | NULL         | NULL       | NULL    |
++--------+------------+------------+---------+------------+--------------+------------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select * from physicians limit 3 offset 4;
++--------+----------+------------+---------+------------+--------------+------------+---------+
+| doc_id | doc_name | doc_salary | doc_gen | doc_dob    | doc_special  | doc_city   | doc_doj |
++--------+----------+------------+---------+------------+--------------+------------+---------+
+|   1005 | geethika |    12867.1 | f       | 2003-10-24 | physiologist | gachibowli | NULL    |
+|   1006 | pooja    |    85500.2 | f       | NULL       | NULL         | NULL       | NULL    |
+|   1007 | pujitha  |    64500.2 | f       | NULL       | NULL         | NULL       | NULL    |
++--------+----------+------------+---------+------------+--------------+------------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select * from physicians limit 1 offset 4;
++--------+----------+------------+---------+------------+--------------+------------+---------+
+| doc_id | doc_name | doc_salary | doc_gen | doc_dob    | doc_special  | doc_city   | doc_doj |
++--------+----------+------------+---------+------------+--------------+------------+---------+
+|   1005 | geethika |    12867.1 | f       | 2003-10-24 | physiologist | gachibowli | NULL    |
++--------+----------+------------+---------+------------+--------------+------------+---------+
+1 row in set (0.00 sec)
+
+mysql> select * from physicians;
++--------+------------+------------+---------+------------+--------------+------------+---------+
+| doc_id | doc_name   | doc_salary | doc_gen | doc_dob    | doc_special  | doc_city   | doc_doj |
++--------+------------+------------+---------+------------+--------------+------------+---------+
+|   1001 | Archana    |    1000500 | f       | 2003-10-17 | cardiology   | kokapet    | NULL    |
+|   1002 | Varshitha  |    10538.3 | f       | 2003-09-12 | dentist      | miyapur    | NULL    |
+|   1003 | Likitha    |    1734.04 | f       | 2003-08-07 | phsycologist | hydranagar | NULL    |
+|   1004 | Maniharika |    1756.02 | f       | 2003-02-01 | therapist    | hitechcity | NULL    |
+|   1005 | geethika   |    12867.1 | f       | 2003-10-24 | physiologist | gachibowli | NULL    |
+|   1006 | pooja      |    85500.2 | f       | NULL       | NULL         | NULL       | NULL    |
+|   1007 | pujitha    |    64500.2 | f       | NULL       | NULL         | NULL       | NULL    |
++--------+------------+------------+---------+------------+--------------+------------+---------+
+7 rows in set (0.00 sec)
+
+mysql> delete from physicians where doc_id=1005;
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from physicians;
++--------+------------+------------+---------+------------+--------------+------------+---------+
+| doc_id | doc_name   | doc_salary | doc_gen | doc_dob    | doc_special  | doc_city   | doc_doj |
++--------+------------+------------+---------+------------+--------------+------------+---------+
+|   1001 | Archana    |    1000500 | f       | 2003-10-17 | cardiology   | kokapet    | NULL    |
+|   1002 | Varshitha  |    10538.3 | f       | 2003-09-12 | dentist      | miyapur    | NULL    |
+|   1003 | Likitha    |    1734.04 | f       | 2003-08-07 | phsycologist | hydranagar | NULL    |
+|   1004 | Maniharika |    1756.02 | f       | 2003-02-01 | therapist    | hitechcity | NULL    |
+|   1006 | pooja      |    85500.2 | f       | NULL       | NULL         | NULL       | NULL    |
+|   1007 | pujitha    |    64500.2 | f       | NULL       | NULL         | NULL       | NULL    |
++--------+------------+------------+---------+------------+--------------+------------+---------+
+6 rows in set (0.00 sec)
+
+mysql> truncate table physicians;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> select * from physicians;
+Empty set (0.00 sec)
+
+mysql> desc physicians;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| doc_id      | int         | YES  |     | NULL    |       |
+| doc_name    | varchar(20) | YES  |     | NULL    |       |
+| doc_salary  | float       | YES  |     | NULL    |       |
+| doc_gen     | char(1)     | YES  |     | NULL    |       |
+| doc_dob     | date        | YES  |     | NULL    |       |
+| doc_special | varchar(20) | YES  |     | NULL    |       |
+| doc_city    | varchar(20) | YES  |     | NULL    |       |
+| doc_doj     | date        | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> drop table physicians;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select * from physicians;
+ERROR 1146 (42S02): Table 'archana_db.physicians' doesn't exist
+mysql>
